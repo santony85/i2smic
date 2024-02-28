@@ -25,6 +25,14 @@ RUN \
     && echo "snd-i2smic-rpi" >> /etc/modules-load.d/snd-i2smic-rpi.conf \
     && echo "options snd-i2smic-rpi rpi_platform_generation=0" >> /etc/modprobe.d/snd-i2smic-rpi.conf \
     \
+    && apt-get install -y --no-install-recommends \
+       libportaudio0 \
+       libportaudio2 \
+       libportaudiocpp0 \ 
+       portaudio19-dev \
+    && pip3 install pyaudio \
+       matplotlib \
+       scipy \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
